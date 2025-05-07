@@ -9,5 +9,5 @@ public class CalendarService {
 
     private Map<Long, User> userData = new HashMap<>();
 
-    User  user1 = new User("1", "John Doe", "password123");
+    User  user1 = new User(1, "John Doe", "password123");
 }
