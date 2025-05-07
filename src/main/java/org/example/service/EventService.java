@@ -16,7 +16,7 @@ public class EventService {
 
     public List<Event> getEventsForDay(Long userId) {
         LocalDateTime now = LocalDateTime.now();
-        List<Event> userEvents =  calendarService.geteventsByuserid(userId);
+        List<Event> userEvents =  calendarService.getEventsByUserID(userId);
         return userEvents.stream()
                 .filter(event -> isSameDay(event.getStartTime(), now))
                 .collect(Collectors.toList());
@@ -25,7 +25,7 @@ public class EventService {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime startOfWeek = now.with(java.time.DayOfWeek.MONDAY);
         LocalDateTime endOfWeek = startOfWeek.plusDays(6);
-        List<Event> userEvents = calendarService.geteventsByuserid(userId);
+        List<Event> userEvents = calendarService.getEventsByUserID(userId);
         return userEvents.stream()
                 .filter(event -> isWithinRange(event.getStartTime(), startOfWeek, endOfWeek))
                 .collect(Collectors.toList());
@@ -35,7 +35,7 @@ public class EventService {
         LocalDateTime now = LocalDateTime.now();
         int month = now.getMonthValue();
         int year = now.getYear();
-        List<Event> userEvents = calendarService.geteventsByuserid(userId);
+        List<Event> userEvents = calendarService.getEventsByUserID(userId);
         return userEvents.stream()
                 .filter(event -> event.getStartTime().getMonthValue() == month &&
                         event.getStartTime().getYear() == year)

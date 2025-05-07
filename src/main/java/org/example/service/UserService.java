@@ -21,6 +21,28 @@ public class UserService {
             System.out.println("Invalid user data.");
         }
     }
+    public void removeUser(Long userId) {
+        if (userId != null && userData.containsKey(userId)) {
+            userData.remove(userId);
+        } else {
+            System.out.println("User not found.");
+        }
+    }
+    public void updateUser(Long userId, User updatedUser) {
+        if (userId != null && userData.containsKey(userId)) {
+            userData.put(userId, updatedUser);
+        } else {
+            System.out.println("User not found.");
+        }
+    }
+    public User getUser(Long userId) {
+        if (userId != null && userData.containsKey(userId)) {
+            return userData.get(userId);
+        } else {
+            System.out.println("User not found.");
+            return null;
+        }
+    }
 
     public boolean login(Long userId, String password) {
         User user = userData.get(userId);

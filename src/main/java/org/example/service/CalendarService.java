@@ -12,7 +12,7 @@ public class CalendarService {
     public CalendarService (UserService userService) {
        this.userService = userService;
     }
-    public List<Event> geteventsByuserid(Long userId){
+    public List<Event> getEventsByUserID(Long userId){
 
         if (userId != null) {
             Calendar calendar = userService.getCalendar(userId);
@@ -22,6 +22,7 @@ public class CalendarService {
             return Collections.emptyList();
         }
     }
+
 
 
 }
