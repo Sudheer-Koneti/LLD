@@ -9,6 +9,8 @@ import java.util.List;
 public class Event {
 
     private final Long eventId;
+    private String eventName;
+    private String eventDescription;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private User host;
@@ -17,15 +19,37 @@ public class Event {
 
     private Event(Builder builder) {
         this.eventId = builder.eventId;
+        this.eventName = builder.eventName;
+        this.eventDescription = builder.eventDescription;
         this.startTime = builder.startTime;
         this.endTime = builder.endTime;
         this.host = builder.host;
         this.participants = builder.participants;
         this.recurrance = builder.recurrance;
     }
+    public Long getEventId() {
+        return eventId;
+    }
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+    public User getHost() {
+        return host;
+    }
+    public List<User> getParticipants() {
+        return participants;
+    }
+    public String getEventName() {
+        return eventName;
+    }
 
     public static class Builder {
         private final Long eventId;
+        private String eventName;
+        private String eventDescription;
         private LocalDateTime startTime;
         private LocalDateTime endTime;
         private User host;
@@ -35,7 +59,14 @@ public class Event {
         public Builder(Long eventId) {
             this.eventId = eventId;
         }
-
+        public Builder eventName(String eventName) {
+            this.eventName = eventName;
+            return this;
+        }
+        public Builder eventDescription(String eventDescription) {
+            this.eventDescription = eventDescription;
+            return this;
+        }
         public Builder startTime(LocalDateTime startTime) {
             this.startTime = startTime;
             return this;

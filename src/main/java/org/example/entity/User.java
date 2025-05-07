@@ -28,5 +28,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    public Calendar getCalendar() {
+        return calendar;
+    }
 
 }

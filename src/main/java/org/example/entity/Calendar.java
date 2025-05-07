@@ -24,23 +24,5 @@ public class Calendar {
             eventData.put(eventId, updatedEvent);
         }
     }
-    public List<Event> getEventsofToday() {
-        List<Event> todayEvents = new ArrayList<>();
-        for (Event event : eventData.values()) {
-            if (event.isToday()) {
-                todayEvents.add(event);
-            }
-        }
-        return todayEvents;
-    }
-    public List<Event> getEventsOfWeek() {
-        List<Event> weekEvents = new ArrayList<>();
-        for (Event event : eventData.values()) {
-            if (event.isThisWeek()) {
-                weekEvents.add(event);
-            }
-        }
-        return weekEvents;
-    }
 
 }
