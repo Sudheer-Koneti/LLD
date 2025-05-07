@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.entity.Calendar;
 import org.example.entity.User;
 
 import java.util.HashMap;
@@ -32,15 +33,14 @@ public class UserService {
         }
     }
 
-    public void getCalendar(Long userId) {
-        User user = userData.get(userId);
-        if (user != null) {
-            System.out.println("Calendar for user: " + user.getUserId());
-            user.getCalendar().getEventsofToday().forEach(event -> {
-                System.out.println("Event: " + event.g());
-            });
+    public Calendar getCalendar(Long userId) {
+
+        if (userId != null && userData.containsKey(userId)) {
+            User user = userData.get(userId);
+            return user.getCalendar();
         } else {
             System.out.println("User not found.");
         }
+        return null;
     }
 }

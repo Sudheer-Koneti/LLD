@@ -1,6 +1,7 @@
 package org.example;
 
 
+
 import org.example.entity.User;
 import org.example.service.UserService;
 
@@ -17,7 +18,16 @@ public class Main {
             System.out.println("User 1 logged in successfully.");
         } else {
             System.out.println("User 1 login failed.");
-        } // Successful
-        userService.login(2L, "wrongPass");
+        }
+        if(userService.login(2L, "wrongPass")){
+            System.out.println("User 2 logged in successfully.");
+        } else {
+            System.out.println("User 2 login failed.");
+        }
+
+        //create event with userid host;
+
+
+
     }
 }

@@ -24,5 +24,8 @@ public class Calendar {
             eventData.put(eventId, updatedEvent);
         }
     }
+    public List<Event> getAllEvents() {
+        return new ArrayList<>(eventData.values());
+    }
 
 }
